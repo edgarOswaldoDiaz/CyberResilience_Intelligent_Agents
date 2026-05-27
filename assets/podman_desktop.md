@@ -8,7 +8,6 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-This ensures you have the latest package listings and security updates before installing new software. ([idroot.us][1], [docs.vultr.com][2])
 
 ## Step 2: Install Podman
 
@@ -18,7 +17,6 @@ With your system up‑to‑date, install Podman directly from Ubuntu’s officia
 sudo apt install -y podman
 ```
 
-Since Ubuntu 20.10, Podman has been included in the default package sources, so this single command pulls in everything you need. ([idroot.us][1])
 
 ## Step 3: Verify the installation
 
@@ -28,7 +26,6 @@ Check that Podman installed correctly by querying its version:
 podman --version
 ```
 
-You should see output like `podman version 4.x.x` confirming the install. ([idroot.us][1])
 
 ## Step 4: Run a test container
 
@@ -38,7 +35,6 @@ Finally, test Podman by running a simple OCI container:
 podman run --rm docker.io/library/ubuntu:24.04 echo "Hello from Podman!"
 ```
 
-You should see `Hello from Podman!` printed, demonstrating that Podman can pull and run containers rootlessly by default. ([devtutorial.io][3])
 
 ---
 
