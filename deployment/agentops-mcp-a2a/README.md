@@ -1,6 +1,6 @@
-# AgentOps MCP + A2A — stack de referencia
+#### AgentOps MCP + A2A — stack de referencia
 
-## 1. Arquitectura y endpoints
+#### Arquitectura y endpoints
 
 | Componente | Endpoint local | Función |
 |---|---|---|
@@ -17,7 +17,7 @@
 
 Los puertos publicados están ligados a `127.0.0.1` intencionalmente. Para acceso remoto, coloca un ingress/API gateway con TLS, autenticación, límites de tasa y protección de red delante de MCP/A2A; no cambies los bind addresses a `0.0.0.0` sin ese control.
 
-## Arranque
+#### Arranque
 
 ```bash
 cp .env.example .env
@@ -29,7 +29,7 @@ docker compose ps
 
 El volumen de PostgreSQL 18 se monta en `/var/lib/postgresql` (no en la ruta antigua `/var/lib/postgresql/data`). Los scripts SQL de inicialización solo corren cuando el volumen `postgres_data` se crea por primera vez. No ejecutes `docker compose down -v` en un entorno con datos que quieras conservar.
 
-## Configuración de Keycloak (paso necesario)
+#### Configuración de Keycloak (paso necesario)
 
 El realm no se precrea deliberadamente para evitar empaquetar secretos de muestra.
 
@@ -60,7 +60,7 @@ export ACCESS_TOKEN="$(curl -fsS -u "$CALLER_CLIENT_ID:$CALLER_CLIENT_SECRET" \
 
 La forma de obtener scopes depende de cómo se configuren los client scopes y los mappers en Keycloak. Confirma el claim `scope` en el token/introspection antes de probar OPA.
 
-## 4. Acceso MCP por API y CLI
+#### Acceso MCP por API y CLI
 
 El endpoint MCP usa Streamable HTTP. Los clientes HTTP deben seguir la negociación MCP; no es una API REST arbitraria. Para inspección con CLI:
 
@@ -78,7 +78,7 @@ npx --yes @modelcontextprotocol/inspector --cli \
 
 También puede probarse la API con un cliente MCP SDK. Los clientes deben usar el header `Authorization: Bearer ...` y el endpoint `/mcp`.
 
-## 5. Acceso A2A por API y CLI
+### Acceso A2A por API y CLI
 
 Consulta pública de la tarjeta del agente:
 
@@ -112,7 +112,7 @@ Smoke test combinado:
 ACCESS_TOKEN="$ACCESS_TOKEN" ./scripts/smoke-test.sh
 ```
 
-## Controles Agent Ops implementados / pendientes
+#### Controles 
 
 | Dominio | Base incluida | Pendiente antes de producción |
 |---|---|---|
@@ -127,7 +127,7 @@ ACCESS_TOKEN="$ACCESS_TOKEN" ./scripts/smoke-test.sh
 | Ciclo de vida | Imágenes etiquetadas, healthchecks, `restart: unless-stopped` y volúmenes | CI/CD GitOps, promoción por ambientes, rollback, canary, revocación/retirada y gestión de tareas persistentes |
 | Cumplimientos normativos | Controles técnicos de referencia y trazas/auditoría base | Matriz de controles y evidencias para la norma aplicable (p. ej., ISO 27001, SOC 2, privacidad local); esto no constituye certificación ni garantiza cumplimiento |
 
-## Notas 
+#### Notas 
 
 - Este Compose usa Keycloak `start-dev`, Jaeger con almacenamiento en memoria e imágenes auxiliares con tag `latest` por defecto. Son decisiones para laboratorio, no para producción. Fija versiones/digests, genera lockfiles, usa Keycloak optimizado con HTTPS y un backend persistente de trazas antes de promover. La instrumentación Python inicializa un `TracerProvider` y exporta spans por OTLP al Collector.
 - A2A usa `InMemoryTaskStore` como ejemplo funcional. Sustitúyelo por un task store persistente y define expiración, retención, aislamiento por tenant y límites de concurrencia.
@@ -136,7 +136,7 @@ ACCESS_TOKEN="$ACCESS_TOKEN" ./scripts/smoke-test.sh
 - La tabla de evaluaciones es solo un registro de resultados; aún no existe un motor de evaluación LLM conectado en este starter.
 - Ajusta `MCP_PUBLIC_URL`, `MCP_ALLOWED_HOSTS`, `MCP_ALLOWED_ORIGINS`, `A2A_PUBLIC_URL`, `A2A_ALLOWED_ORIGINS` e `KEYCLOAK_ISSUER_URL` al dominio HTTPS de tu ingress en cada ambiente.
 
-## Operación
+#### Operación
 
 ```bash
 # Logs de un componente
