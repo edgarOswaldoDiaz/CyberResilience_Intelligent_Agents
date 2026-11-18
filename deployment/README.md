@@ -1,6 +1,4 @@
-# AgentOps MCP + A2A — stack de referencia
-
-Este proyecto es una **base local de desarrollo e integración**, no un despliegue productivo certificado. Incluye un MCP Server y un agente A2A construibles, identidad OIDC con Keycloak, decisiones de autorización con OPA, auditoría/catálogo en PostgreSQL y telemetría OpenTelemetry con Prometheus/Grafana/Jaeger.
+#### AgentOps MCP + A2A
 
 ## 1. Arquitectura y endpoints
 
