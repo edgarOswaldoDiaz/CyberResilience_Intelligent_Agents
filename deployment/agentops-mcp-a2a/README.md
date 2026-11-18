@@ -1,4 +1,4 @@
-#### AgentOps MCP + A2A — stack de referencia
+#### **AgentOps MCP + A2A**
 
 #### Arquitectura y endpoints
 
