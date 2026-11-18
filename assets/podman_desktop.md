@@ -1,5 +1,4 @@
-# Install Podman 
-## Step 1: Update your system’s package index and upgrade installed packages
+#### Install Podman
 
 Open a terminal and run:
 
@@ -9,16 +8,12 @@ sudo apt upgrade -y
 ```
 
 
-## Step 2: Install Podman
-
 With your system up‑to‑date, install Podman directly from Ubuntu’s official repositories:
 
 ```bash
 sudo apt install -y podman
 ```
 
-
-## Step 3: Verify the installation
 
 Check that Podman installed correctly by querying its version:
 
@@ -27,8 +22,6 @@ podman --version
 ```
 
 
-## Step 4: Run a test container
-
 Finally, test Podman by running a simple OCI container:
 
 ```bash
@@ -36,10 +29,6 @@ podman run --rm docker.io/library/ubuntu:24.04 echo "Hello from Podman!"
 ```
 
 
----
+______________________
 
-Once these steps are complete, Podman is ready to use on your Ubuntu 24.04 system. You can explore additional features such as `podman pod`, `podman build`, or integrating with Docker Compose using `podman-compose`.
-
-[1]: https://idroot.us/install-podman-ubuntu-24-04/?utm_source=chatgpt.com "How To Install Podman on Ubuntu 24.04 LTS - idroot"
-[2]: https://docs.vultr.com/how-to-install-podman-on-ubuntu-24-04?utm_source=chatgpt.com "How to Install Podman on Ubuntu 24.04 - Vultr"
-[3]: https://devtutorial.io/how-to-install-and-use-podman-on-ubuntu-24-04-p3481.html?utm_source=chatgpt.com "How to Install and Use Podman on Ubuntu 24.04 - Devtutorial"
+> CISO | oswaldo.diaz@inegi.org.mx 

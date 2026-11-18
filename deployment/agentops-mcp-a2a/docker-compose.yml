@@ -1,7 +1,7 @@
 name: agentops-mcp-a2a
 
 services:
-  # Persistent identity store. The init script creates separate databases
+  # Persistent identity store. The init scripf creates separate databases
   # and least-privilege users for Keycloak and AgentOps audit/catalog data.
   postgres:
     image: postgres:18.7-alpine
