@@ -20,5 +20,5 @@ We need to generate a computational platform that utilizes open-source licensed 
 
 ________________
 
-> CISO - contact oswaldo.diaz@inegi.org.mx  
+> CISO | oswaldo.diaz@inegi.org.mx  
 
