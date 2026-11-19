@@ -1,6 +1,6 @@
 #### Plataforma
 
-<img src="assets/arquitectura_plataforma.jpg">
+<img src="./assets/arquitectura_plataforma.jpg">
 
 ______________________
 
